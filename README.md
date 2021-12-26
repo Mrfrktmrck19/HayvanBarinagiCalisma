@@ -1,4 +1,4 @@
-# HayvanBarinagiCalisma
+# Hayvan Barınağı Web Projesi
 2021/2022 Güz Dönemi Web Programlama Projesi
 Proje, bir hayvan barınağının hayvan edinme, sahiplenme işlemlerini gerçekleştirmesini sağlayan
 bir web arayüzüdür.
