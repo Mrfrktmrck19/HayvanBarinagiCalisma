@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<CustomUser> SignInManager
+@inject UserManager<CustomUser> UserManager
+
+    <ul class="navbar-nav">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hoşgeldin @User.Identity.Name!</a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline text-light" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-light">Çıkış</button>
+                </form>
+            </li>
+            
+                var isAdmin = User.IsInRole("Admin");
+                if (isAdmin)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-controller="Admin" asp-action="Index">&emsp;Admin Paneli</a>
+                    </li>
+                }
+           
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Kayıt Ol&emsp;</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Giriş</a>
+            </li>
+        }
+    </ul>

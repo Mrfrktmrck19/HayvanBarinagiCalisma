@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Hayvan Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Hayvan
+
+<div class="card m-auto w-75">
+    <img class="card-img-top" src="@Model.Foto" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Adi</h5>
+        <p class="card-text">@Model.EkBilgiler</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Tür: @ViewBag.Tur</li>
+        <li class="list-group-item">Cins: @ViewBag.Cins</li>
+        <li class="list-group-item">Yaş: @Model.Yasi</li>
+        @if (Model.Cinsiyet)
+        {
+            <li class="list-group-item">Cinsiyet: Erkek</li>
+        }
+        else
+        {
+            <li class="list-group-item">Cinsiyet: Dişi</li>
+        }
+
+
+    </ul>
+    <div class="card-body text-center">
+        <a asp-controller="Home" asp-action="SahiplenmeGercekleme" asp-route-id="@Model.HayvanId" class="btn btn-outline-dark w-25">Sahiplen</a>
+    </div>
+</div>
